@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <div class="container py-4 px-3 mx-auto">
+      kazkas
+    </div>
   </main>
 </template>
