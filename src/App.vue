@@ -36,4 +36,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #9f9f9f;
 }
+
+#app {
+  display: block;
+}
 </style>

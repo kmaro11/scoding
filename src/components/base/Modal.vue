@@ -2,19 +2,23 @@
 const props = defineProps({
   title: {
     type: String,
-    default: "<<Title goes here>>",
+    default: "Add task",
   },
 })
-const emit = defineEmits(['closeModal'])
+const emit = defineEmits(['closeModal', 'save'])
 
 const closeModal = () => {
   emit('closeModal')
 }
 
+const save = () => {
+  emit('save', )
+}
+
 </script>
 
 <template>
-  <div class="modal fade show"
+  <div class="modal show bg-dark bg-opacity-75"
        tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog"
        style="display:block">
     <div class="modal-dialog">
@@ -30,6 +34,9 @@ const closeModal = () => {
           <slot name="footer"></slot>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="closeModal">
             Close
+          </button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" @click="save">
+            Save
           </button>
         </div>
       </div>
