@@ -15,6 +15,7 @@ export const useCounterStore = defineStore("useTaskState", () => {
     tasks.value.forEach(task => {
       if(task.id === id) task.status = status
     })
+    saveLocally()
   }
   
   function saveLocally() {
@@ -27,8 +28,9 @@ export const useCounterStore = defineStore("useTaskState", () => {
     if(tasksFromStorage) {
       parsedTasks = JSON.parse(tasksFromStorage) || []
     }
-    if(parsedTasks.length) tasks.value = [...parsedTasks]
-    console.log(tasksFromStorage, parsedTasks)
+    if(parsedTasks.length) {
+      tasks.value = [...parsedTasks]
+    }
   }
 
   return { tasks, addTask, changeTaskStatus, getTasks };
