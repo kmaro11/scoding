@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, onMounted, ref } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 import Modal from "@/components/base/Modal.vue";
 import TaskCard from "@/components/TaskCard.vue";
 import type { Task } from "@/types";
-import {useCounterStore} from "@/stores"
+import { useCounterStore } from "@/stores"
 
 let defaultTask = {
   id: null,
@@ -18,7 +18,6 @@ const tasksList = computed(() => {
   return store.tasks
 })
 
-
 const addTask = () => {
   store.addTask(task.value)
   openTaskModal.value = false
@@ -28,7 +27,6 @@ const addTask = () => {
 onBeforeMount(() => {
   store.getTasks()
 })
-
 </script>
 
 <template>
@@ -37,7 +35,7 @@ onBeforeMount(() => {
     <div class="w-100 d-flex justify-content-center mb-5">
       <button type="button" class="btn btn-primary" @click="openTaskModal = true">Create task</button>
     </div>
-    <div class="col-5 d-flex flex-column align-items-center mx-auto" v-if="tasksList.length">
+    <div class="col-sm-5 d-flex flex-column align-items-center mx-auto" v-if="tasksList.length">
       <TaskCard v-for="task in tasksList" :task="task"/>
     </div>
     <h2 v-else class="text-center">No tasks assigned</h2>
